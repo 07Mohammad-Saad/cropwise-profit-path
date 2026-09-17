@@ -64,7 +64,7 @@ function BuyersPage() {
     })
     .sort((a, b) => b.net - a.net);
 
-  const safest = [...rows].sort((a, b) => b.score - a.score)[0];
+  const safest = [...rows].sort((a, b) => b.score - a.score)[0]!;
 
   const choose = (b: Buyer) => {
     setSelection({ ...selection, buyerId: b.id });

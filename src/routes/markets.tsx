@@ -43,11 +43,12 @@ function MarketsPage() {
   }
 
   const rows = rankedMandis(selection.crop, selection.qtyKg, selection.grade);
-  const best = rows[0];
+  const best = rows[0]!;
   const cropMeta = CROPS.find((c) => c.id === selection.crop)!;
 
   const choose = (mandiId: string) => {
-    setSelection({ ...selection, mandiId, buyerId: undefined });
+    const { buyerId: _prev, ...rest } = selection;
+    setSelection({ ...rest, mandiId });
     navigate({ to: "/buyers" });
   };
 

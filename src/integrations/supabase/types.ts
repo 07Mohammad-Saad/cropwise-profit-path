@@ -14,7 +14,137 @@ export type Database = {
   }
   public: {
     Tables: {
-      [_ in never]: never
+      crop_entries: {
+        Row: {
+          area_acre: number
+          created_at: string
+          crop_name: string
+          expected_yield_quintal: number
+          farmer_id: string
+          fertilizer_cost: number
+          id: string
+          labour_cost: number
+          mandi_price_per_quintal: number
+          net_profit: number
+          other_cost: number
+          profit_percent: number
+          seed_cost: number
+          sowing_date: string | null
+          total_cost: number
+          total_revenue: number
+          water_cost: number
+        }
+        Insert: {
+          area_acre?: number
+          created_at?: string
+          crop_name: string
+          expected_yield_quintal?: number
+          farmer_id: string
+          fertilizer_cost?: number
+          id?: string
+          labour_cost?: number
+          mandi_price_per_quintal?: number
+          net_profit?: number
+          other_cost?: number
+          profit_percent?: number
+          seed_cost?: number
+          sowing_date?: string | null
+          total_cost?: number
+          total_revenue?: number
+          water_cost?: number
+        }
+        Update: {
+          area_acre?: number
+          created_at?: string
+          crop_name?: string
+          expected_yield_quintal?: number
+          farmer_id?: string
+          fertilizer_cost?: number
+          id?: string
+          labour_cost?: number
+          mandi_price_per_quintal?: number
+          net_profit?: number
+          other_cost?: number
+          profit_percent?: number
+          seed_cost?: number
+          sowing_date?: string | null
+          total_cost?: number
+          total_revenue?: number
+          water_cost?: number
+        }
+        Relationships: [
+          {
+            foreignKeyName: "crop_entries_farmer_id_fkey"
+            columns: ["farmer_id"]
+            isOneToOne: false
+            referencedRelation: "farmers"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
+      farmers: {
+        Row: {
+          created_at: string
+          district: string
+          id: string
+          name: string
+          phone: string
+          village: string
+        }
+        Insert: {
+          created_at?: string
+          district?: string
+          id: string
+          name?: string
+          phone?: string
+          village?: string
+        }
+        Update: {
+          created_at?: string
+          district?: string
+          id?: string
+          name?: string
+          phone?: string
+          village?: string
+        }
+        Relationships: []
+      }
+      mandi_rates: {
+        Row: {
+          arrival_date: string | null
+          crop: string
+          fetched_at: string
+          id: string
+          market: string
+          max_price: number | null
+          min_price: number | null
+          modal_price: number
+          source: string
+        }
+        Insert: {
+          arrival_date?: string | null
+          crop: string
+          fetched_at?: string
+          id?: string
+          market: string
+          max_price?: number | null
+          min_price?: number | null
+          modal_price: number
+          source?: string
+        }
+        Update: {
+          arrival_date?: string | null
+          crop?: string
+          fetched_at?: string
+          id?: string
+          market?: string
+          max_price?: number | null
+          min_price?: number | null
+          modal_price?: number
+          source?: string
+        }
+        Relationships: []
+      }
     }
     Views: {
       [_ in never]: never

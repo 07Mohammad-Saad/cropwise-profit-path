@@ -10,128 +10,33 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
-import { Route as BuyersRouteImport } from './routes/buyers'
-import { Route as DealRouteImport } from './routes/deal'
-import { Route as DealsRouteImport } from './routes/deals'
-import { Route as HomeRouteImport } from './routes/home'
-import { Route as InputRouteImport } from './routes/input'
-import { Route as MarketsRouteImport } from './routes/markets'
-import { Route as ProfileRouteImport } from './routes/profile'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
-const BuyersRoute = BuyersRouteImport.update({
-  id: '/buyers',
-  path: '/buyers',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const DealRoute = DealRouteImport.update({
-  id: '/deal',
-  path: '/deal',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const DealsRoute = DealsRouteImport.update({
-  id: '/deals',
-  path: '/deals',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const HomeRoute = HomeRouteImport.update({
-  id: '/home',
-  path: '/home',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const InputRoute = InputRouteImport.update({
-  id: '/input',
-  path: '/input',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const MarketsRoute = MarketsRouteImport.update({
-  id: '/markets',
-  path: '/markets',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const ProfileRoute = ProfileRouteImport.update({
-  id: '/profile',
-  path: '/profile',
-  getParentRoute: () => rootRouteImport,
-} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
-  '/buyers': typeof BuyersRoute
-  '/deal': typeof DealRoute
-  '/deals': typeof DealsRoute
-  '/home': typeof HomeRoute
-  '/input': typeof InputRoute
-  '/markets': typeof MarketsRoute
-  '/profile': typeof ProfileRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
-  '/buyers': typeof BuyersRoute
-  '/deal': typeof DealRoute
-  '/deals': typeof DealsRoute
-  '/home': typeof HomeRoute
-  '/input': typeof InputRoute
-  '/markets': typeof MarketsRoute
-  '/profile': typeof ProfileRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
-  '/buyers': typeof BuyersRoute
-  '/deal': typeof DealRoute
-  '/deals': typeof DealsRoute
-  '/home': typeof HomeRoute
-  '/input': typeof InputRoute
-  '/markets': typeof MarketsRoute
-  '/profile': typeof ProfileRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths:
-    | '/'
-    | '/buyers'
-    | '/deal'
-    | '/deals'
-    | '/home'
-    | '/input'
-    | '/markets'
-    | '/profile'
+  fullPaths: '/'
   fileRoutesByTo: FileRoutesByTo
-  to:
-    | '/'
-    | '/buyers'
-    | '/deal'
-    | '/deals'
-    | '/home'
-    | '/input'
-    | '/markets'
-    | '/profile'
-  id:
-    | '__root__'
-    | '/'
-    | '/buyers'
-    | '/deal'
-    | '/deals'
-    | '/home'
-    | '/input'
-    | '/markets'
-    | '/profile'
+  to: '/'
+  id: '__root__' | '/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
-  BuyersRoute: typeof BuyersRoute
-  DealRoute: typeof DealRoute
-  DealsRoute: typeof DealsRoute
-  HomeRoute: typeof HomeRoute
-  InputRoute: typeof InputRoute
-  MarketsRoute: typeof MarketsRoute
-  ProfileRoute: typeof ProfileRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -143,67 +48,11 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/buyers': {
-      id: '/buyers'
-      path: '/buyers'
-      fullPath: '/buyers'
-      preLoaderRoute: typeof BuyersRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/deal': {
-      id: '/deal'
-      path: '/deal'
-      fullPath: '/deal'
-      preLoaderRoute: typeof DealRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/deals': {
-      id: '/deals'
-      path: '/deals'
-      fullPath: '/deals'
-      preLoaderRoute: typeof DealsRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/home': {
-      id: '/home'
-      path: '/home'
-      fullPath: '/home'
-      preLoaderRoute: typeof HomeRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/input': {
-      id: '/input'
-      path: '/input'
-      fullPath: '/input'
-      preLoaderRoute: typeof InputRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/markets': {
-      id: '/markets'
-      path: '/markets'
-      fullPath: '/markets'
-      preLoaderRoute: typeof MarketsRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/profile': {
-      id: '/profile'
-      path: '/profile'
-      fullPath: '/profile'
-      preLoaderRoute: typeof ProfileRouteImport
-      parentRoute: typeof rootRouteImport
-    }
   }
 }
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
-  BuyersRoute: BuyersRoute,
-  DealRoute: DealRoute,
-  DealsRoute: DealsRoute,
-  HomeRoute: HomeRoute,
-  InputRoute: InputRoute,
-  MarketsRoute: MarketsRoute,
-  ProfileRoute: ProfileRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)

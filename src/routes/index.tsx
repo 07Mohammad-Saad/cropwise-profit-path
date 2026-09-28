@@ -39,11 +39,11 @@ function AuthPage() {
     });
   }, [navigate]);
 
-  const submit = async (e: React.FormEvent) => {
+  const submit = async (e: React.FormEvent): Promise<void> => {
     e.preventDefault();
     const p = phone.replace(/\D/g, "");
-    if (p.length !== 10) return toast.error(t("Enter a 10-digit mobile number", "10 अंकों का मोबाइल नंबर डालें", "10 अंकी मोबाईल नंबर टाका"));
-    if (password.length < 6) return toast.error(t("Password must be at least 6 characters", "पासवर्ड कम से कम 6 अक्षर", "पासवर्ड किमान 6 अक्षरे"));
+    if (p.length !== 10) { toast.error(t("Enter a 10-digit mobile number", "10 अंकों का मोबाइल नंबर डालें", "10 अंकी मोबाईल नंबर टाका")); return; }
+    if (password.length < 6) { toast.error(t("Password must be at least 6 characters", "पासवर्ड कम से कम 6 अक्षर", "पासवर्ड किमान 6 अक्षरे")); return; }
     setBusy(true);
     try {
       if (mode === "signup") {
